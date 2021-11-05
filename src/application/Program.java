@@ -1,7 +1,7 @@
 package application;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import entitiess.Product;
 
@@ -9,17 +9,19 @@ public class Program {
 	
 	public static void main(String[] args) {
 		
-		Map<Product, Double> stock = new HashMap<>();
-		Product p1 = new Product("Tv", 900.0);
-		Product p2 = new Product("Notebook", 1200.0);
-		Product p3 = new Product("Tablet", 400.0);
+		List<Product> list = new ArrayList<>();
 		
-		stock.put(p1, 10000.0);
-		stock.put(p2, 20000.0);
-		stock.put(p3, 15000.0);
+		list.add(new Product("Tv", 900.0));
+		list.add(new Product("Notebook", 1200.0));
+		list.add(new Product("Tablet", 400.0));
+				
+
+		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 		
-		Product ps = new Product("Tv", 900.0);
-		System.out.println("Contains 'ps' key: " + stock.containsKey(ps));
+		
+		for(Product p : list) {
+			System.out.println(p);
+		}	
 	}
 
 }
